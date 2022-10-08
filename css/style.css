@@ -13,6 +13,13 @@ html {
     font-size: 62.5%;
     box-sizing: border-box;
     /* Hack para Box Model*/
+    scroll-snap-type: y mandatory;
+}
+
+/* Scroll snap */
+.nav-principal, .servicios, .formulario {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
 }
 
 *,
@@ -27,6 +34,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     background-image: linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 100%);
 }
+
 
 .contenedor {
     max-width: 120rem;
@@ -239,10 +247,21 @@ h3 {
     color: var(--primario);
 }
 
-.contenedor-campos {}
+@media (min-width: 768px) {
+    .contenedor-campos {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto 20rem;
+    }
+
+    .campo:nth-child(3), .campo:nth-child(4) {
+        grid-column: 1 / 3;
+    }
+}
 
 .campo {
     margin-bottom: 1rem;
+    margin: .5rem;
 }
 
 .campo label {
@@ -257,4 +276,14 @@ h3 {
     border: none;
     padding: 1.5rem;
     border-radius: .5rem;
+}
+
+.campo textarea {
+    height: 15rem;
+}
+
+/* Footer */
+
+.footer {
+    text-align: center;
 }
